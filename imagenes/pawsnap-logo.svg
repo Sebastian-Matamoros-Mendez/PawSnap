@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="360" viewBox="0 0 1400 360" role="img" aria-labelledby="title">
+  <title id="title">PawSnap</title>
+  <rect x="40" y="40" width="280" height="280" rx="76" fill="#1EA896"/>
+  <g fill="#FFFFFF">
+    <ellipse cx="180" cy="211" rx="62" ry="49"/>
+    <ellipse cx="107" cy="155" rx="26" ry="34" transform="rotate(-25 107 155)"/>
+    <ellipse cx="148" cy="105" rx="25" ry="34" transform="rotate(-7 148 105)"/>
+    <ellipse cx="212" cy="105" rx="25" ry="34" transform="rotate(7 212 105)"/>
+    <ellipse cx="253" cy="155" rx="26" ry="34" transform="rotate(25 253 155)"/>
+  </g>
+  <text x="370" y="239" fill="#523F38" font-family="DejaVu Sans, Arial, sans-serif" font-size="176" font-weight="800" letter-spacing="-7">PawSnap</text>
+</svg>
