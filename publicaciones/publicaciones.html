@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/publicaciones.css">
+    <script src="../js/publicaciones.js" defer></script>
+    <title>PawSnap</title>
+</head>
+<body>
+    <header> 
+        <div>
+            <img src="../imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+        </div>
+        <div> 
+            <input type="text" placeholder="Buscar mascotas o categorías.">
+        </div>
+        <div>
+            <button>Iniciar sesión</button>
+            <button>Crear cuenta</button>
+        </div>
+    </header>
+    <nav>
+        <button><a href="../index.html">Inicio</a></button>
+        <button>Publicaciones</button>
+        <button>Crear publicación</button>
+        <button>Desaparecidos</button>
+        <button>Collar virtual</button>
+        <button>Perfil</button>
+        <button>Acerca de</button>
+    </nav>
+    <main>
+        <section class="">
+            <span class="label">Explora</span>
+            <h2 class="title">Publicaciones</h2>
+            <p class="subtitle">Momentos, consejos e historias de la comunidad PawSnap.</p>
+        </section>
+        <div class="filters">
+            <button type="button" class="filters_Button filters_ButtonActive" data-categoria="Todos">Todos</button>
+            <button type="button" class="filters_Button" data-categoria="Caninos">Caninos</button>
+            <button type="button" class="filters_Button" data-categoria="Felinos">Felinos</button>
+            <button type="button" class="filters_Button" data-categoria="Roedores">Roedores</button>
+        </div>
+        <div class="posts">
+            <article class="card">
+                <h3 class="card_User">Sofía &amp; Moka</h3>
+                <p class="card_Text">Primera tarde de Moka en el parque. Al principio no quería separarse de mí, pero terminó haciendo una nueva amiga.</p>
+                <figure class="card_Figure">
+                    <img src="../imagenes/Moka.jpg" alt="Cachorros jugando en el parque." class="card_Image">
+                </figure>
+                <span class="card_Category">Caninos</span>
+                <footer class="card_Actions">
+                    <button class="card_Button" type="button">Me gusta: <span class="card_Likes">128</span></button>
+                    <button class="card_Button" type="button">Comentar</button>
+                    <button class="card_Button" type="button">Compartir</button>
+                    <button class="card_Button" type="button">Guardar</button>
+                </footer>
+            </article>
+            <article class="card">
+                <h3 class="card_User">Milo</h3>
+                <p class="card_Text">Milo ha descubierto que la mejor vista de la casa está justo aquí. ¿Los gatos de ustedes también tienen un rincón favorito?</p>
+                <figure class="card_Figure">
+                    <img src="../imagenes/Milo.jpg" alt="Gato viendo una ventana." class="card_Image">
+                </figure>
+                <span class="card_Category">Felinos</span>
+                <footer class="card_Actions">
+                    <button class="card_Button" type="button">Me gusta: <span class="card_Likes">94</span></button>
+                    <button class="card_Button" type="button">Comentar</button>
+                    <button class="card_Button" type="button">Compartir</button>
+                    <button class="card_Button" type="button">Guardar</button>
+                </footer>
+            </article>
+            <article class="card">
+                <h3 class="card_User">Nuez</h3>
+                <p class="card_Text">Nuez cumplió dos años hoy. Le preparamos semillas, fruta y su túnel favorito. Pequeño de tamaño, enorme de personalidad.</p>
+                <figure class="card_Figure">
+                    <img src="../imagenes/Nuez.jpg" alt="Hámster comiendo semillas." class="card_Image">
+                </figure>
+                <span class="card_Category">Roedores</span>
+                <footer class="card_Actions">
+                    <button class="card_Button" type="button">Me gusta: <span class="card_Likes">76</span></button>
+                    <button class="card_Button" type="button">Comentar</button>
+                    <button class="card_Button" type="button">Compartir</button>
+                    <button class="card_Button" type="button">Guardar</button>
+                </footer> 
+            </article>
+        </div>
+    </main>
+</body>
+</html>

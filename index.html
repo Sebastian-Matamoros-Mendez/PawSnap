@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
     <title>PawSnap</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
     </header>
     <nav>
         <button>Inicio</button>
-        <button>Publicaciones</button>
+        <button><a href="publicaciones/publicaciones.html">Publicaciones</a></button>
         <button>Crear publicación</button>
         <button>Desaparecidos</button>
         <button>Collar virtual</button>
@@ -34,49 +34,52 @@
             <p class="hero_Eyebrow">Tu comunidad animal</p>
             <h2 class="hero_Title">Cada mascota tiene una historia que merece ser compartida.</h2>
             <p class="hero_Text">Celebra sus momentos, conecta con otros cuidadores y ayuda a que todos vuelvan a casa.</p>
-            <a class="hero_Button" href="#crear_Publicacion">Compartir un momento</a>
+            <a class="hero_Button" href="">Compartir un momento</a> <!-- agregar cuando haya crear publicación-->
         </section>
-        <article class="card">
-            <h3 class="card_User">Sofía &amp; Moka</h3>
-            <p class="card_Text">Primera tarde de Moka en el parque. Al principio no quería separarse de mí, pero terminó haciendo una nueva amiga.</p>
-            <figure>
-                <img src="imagenes/Moka.jpg" alt="Cachorros jugando en el parque.">
-            </figure>
-            <span class="card_Category">Caninos</span>
-            <footer class="card__Actions">
-                <button class="card__Button" type="button">Me gusta: <span class="card__likes">128</span></button>
-                <button class="card__Button" type="button">Comentar</button>
-                <button class="card__Button" type="button">Compartir</button>
-                <button class="card__Button" type="button">Guardar</button>
-            </footer>
-        </article>
-        <article class="card">
-            <h3 class="card_User">Milo</h3>
-            <p class="card_Text">Milo ha descubierto que la mejor vista de la casa está justo aquí. ¿Los gatos de ustedes también tienen un rincón favorito?</p>
-            <figure>
-                <img src="imagenes/Milo.jpg" alt="Gato viendo una ventana.">
-            </figure>
-            <span class="card_Category">Felinos</span>
-            <footer class="card__Actions">
-                <button class="card__Button" type="button">Me gusta: <span class="card__likes">94</span></button>
-                <button class="card__Button" type="button">Comentar</button>
-                <button class="card__Button" type="button">Compartir</button>
-                <button class="card__Button" type="button">Guardar</button>
-            </footer>
-        </article>
-        <article class="card">
-            <h3 class="card_User">Nuez</h3>
-            <p class="card_Text">Nuez cumplió dos años hoy. Le preparamos semillas, fruta y su túnel favorito. Pequeño de tamaño, enorme de personalidad.</p>
-            <figure>
-                <img src="imagenes/Nuez.jpg" alt="Cachorros jugando en el parque">
-            </figure>
-            <span class="card_Category">Roedores</span>
-            <footer class="card__Actions">
-                <button class="card__Button" type="button">Me gusta: <span class="card__likes">76</span></button>
-                <button class="card__Button" type="button">Comentar</button>
-                <button class="card__Button" type="button">Compartir</button>
-                <button class="card__Button" type="button">Guardar</button>
-            </footer>
+        <div class="posts">
+            <article class="card">
+                <h3 class="card_User">Sofía &amp; Moka</h3>
+                <p class="card_Text">Primera tarde de Moka en el parque. Al principio no quería separarse de mí, pero terminó haciendo una nueva amiga.</p>
+                <figure class="card_Figure">
+                    <img src="imagenes/Moka.jpg" alt="Cachorros jugando en el parque." class="card_Image">
+                </figure>
+                <span class="card_Category">Caninos</span>
+                <footer class="card_Actions">
+                    <button class="card_Button" type="button">Me gusta: <span class="card_Likes">128</span></button>
+                    <button class="card_Button" type="button">Comentar</button>
+                    <button class="card_Button" type="button">Compartir</button>
+                    <button class="card_Button" type="button">Guardar</button>
+                </footer>
+            </article>
+            <article class="card">
+                <h3 class="card_User">Milo</h3>
+                <p class="card_Text">Milo ha descubierto que la mejor vista de la casa está justo aquí. ¿Los gatos de ustedes también tienen un rincón favorito?</p>
+                <figure class="card_Figure">
+                    <img src="imagenes/Milo.jpg" alt="Gato viendo una ventana." class="card_Image">
+                </figure>
+                <span class="card_Category">Felinos</span>
+                <footer class="card_Actions">
+                    <button class="card_Button" type="button">Me gusta: <span class="card_Likes">94</span></button>
+                    <button class="card_Button" type="button">Comentar</button>
+                    <button class="card_Button" type="button">Compartir</button>
+                    <button class="card_Button" type="button">Guardar</button>
+                </footer>
+            </article>
+            <article class="card">
+                <h3 class="card_User">Nuez</h3>
+                <p class="card_Text">Nuez cumplió dos años hoy. Le preparamos semillas, fruta y su túnel favorito. Pequeño de tamaño, enorme de personalidad.</p>
+                <figure class="card_Figure">
+                    <img src="imagenes/Nuez.jpg" alt="Hámster comiendo semillas." class="card_Image">
+                </figure>
+                <span class="card_Category">Roedores</span>
+                <footer class="card_Actions">
+                    <button class="card_Button" type="button">Me gusta: <span class="card_Likes">76</span></button>
+                    <button class="card_Button" type="button">Comentar</button>
+                    <button class="card_Button" type="button">Compartir</button>
+                    <button class="card_Button" type="button">Guardar</button>
+                </footer> 
+            </article>
+        </div>
     </main>
 </body>
 </html>
