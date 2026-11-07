@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/perfil.css">
+    <script src="../js/perfil.js" defer></script>
+    <title>PawSnap - Perfil</title>
+</head>
+<body>
+    <header> 
+        <div>
+            <img src="../imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+        </div>
+        <div> 
+            <input type="text" placeholder="Buscar mascotas o categorías.">
+        </div>
+        <div>
+            <button>Iniciar sesión</button>
+            <button>Crear cuenta</button>
+        </div>
+    </header>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="../publicaciones/publicaciones.html">Publicaciones</a>
+        <a href="../crear_Publicacion/crear_Publicacion.html">Crear publicación</a>
+        <a href="../desaparecidos/desaparecidos.html">Desaparecidos</a>
+        <a href="../collar_Virtual/collar_Virtual.html">Collar virtual</a>
+        <a href="">Perfil</a>
+        <a href="../acerca_De/acerca_De.html">Acerca de</a>
+    </nav>
+    <main>
+        <section id="profile_Section">
+            <article id="profile_Card">
+                <div id="profile_Cover"></div>
+                <div id="profile_Body">
+                    <div id="profile_Avatar">AR</div>
+                    <div id="profile_Actions">
+                        <button id="edit_Button" type="button">Editar perfil</button>
+                    </div>
+                    <h1 id="profile_Name">Andrea Ruiz</h1>
+                    <p id="profile_Handle">@andreayluna</p>
+                    <p id="profile_Bio">Humana de Luna. Amante de los paseos largos y las siestas compartidas.</p>
+                    <ul id="profile_Stats">
+                        <li class="stat_Item">
+                            <strong class="stat_Number">3</strong>
+                            <span class="stat_Label">Publicaciones</span>
+                        </li>
+                        <li class="stat_Item">
+                            <strong class="stat_Number">0</strong>
+                            <span class="stat_Label">Guardadas</span>
+                        </li>
+                        <li class="stat_Item">
+                            <strong class="stat_Number">184</strong>
+                            <span class="stat_Label">Amigos</span>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            <h2 id="moments_Title">Mis momentos</h2>
+            <div id="moments_Grid">
+                <img class="moment_Image" src="../imagenes/Moka.jpg" alt="Primer momento publicado">
+                <img class="moment_Image" src="../imagenes/Milo.jpg" alt="Segundo momento publicado">
+                <img class="moment_Image" src="../imagenes/Nuez.jpg" alt="Tercer momento publicado">
+            </div>
+        </section>
+    </main>
+</body>
+</html>
