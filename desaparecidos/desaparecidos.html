@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/desaparecidos.css">
+    <script src="../js/desaparecidos.js" defer></script>
+    <title>PawSnap - Desaparecidos</title>
+</head>
+<body>
+    <header> 
+        <div>
+            <img src="imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+        </div>
+        <div> 
+            <input type="text" placeholder="Buscar mascotas o categorías.">
+        </div>
+        <div>
+            <button>Iniciar sesión</button>
+            <button>Crear cuenta</button>
+        </div>
+    </header>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="../publicaciones/publicaciones.html">Publicaciones</a>
+        <a href="../crear_Publicacion/crear_Publicacion.html">Crear publicación</a>
+        <a href="">Desaparecidos</a>
+        <a href="">Collar virtual</a>
+        <a href="">Perfil</a>
+        <a href="">Acerca de</a>
+    </nav>
+    <main>
+        <main>
+        <section id="desaparecidos">
+            <header id="page_Header">
+                <div>
+                    <span class="pageLabel">Red de ayuda</span>
+                    <h1 class="page_Title">Mascotas desaparecidas</h1>
+                    <p class="page_Subtitle">Activa a la comunidad cercana. Cada mirada cuenta cuando alguien no vuelve a casa.</p>
+                </div>
+                <button id="alert_Button" type="button">+ Publicar alerta</button>
+            </header>
+            <p id="area">Mostrando alertas a menos de 5 km de Guadalupe</p>
+            <div id="pet_Grid">
+                <article class="pet_Card">
+                    <figure class="pet_Figure">
+                        <img class="pe_tImage" src="../imagenes/Kira.jpg" alt="gato con babero amarilo maullando feliz">
+                        <span class="pet_Badge">Desaparecido</span>
+                    </figure>
+                    <div class="pet_Body">
+                        <h2 class="pet_Name">Kira</h2>
+                        <p class="pet_Breed">Gata carey · 4 años</p>
+                        <p class="pet_Seen">Visto por última vez: Hoy, 08:30</p>
+                        <div class="pet_Actions">
+                            <button class="pet_InfoButton" type="button">Tengo información</button>
+                            <button class="pet_ShareButton" type="button">Compartir</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="pet_Card">
+                    <figure class="pet_Figure">
+                        <img class="pet_Image" src="../imagenes/toby.jpg" alt="Toby, beagle">
+                        <span class="pet_Badge">Desaparecido</span>
+                    </figure>
+                    <div class="pet_Body">
+                        <h2 class="pet_Name">Toby</h2>
+                        <p class="pet_Breed">Beagle · 6 años</p>
+                        <p class="pet_Seen">Visto por última vez: Ayer, 19:15</p>
+                        <div class="petA_ctions">
+                            <button class="pet_InfoButton" type="button">Tengo información</button>
+                            <button class="pet_ShareButton" type="button">Compartir</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    </main>
+</body>
+</html>
