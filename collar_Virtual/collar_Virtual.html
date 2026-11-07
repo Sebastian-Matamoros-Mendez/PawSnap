@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/collar_Virtual.css">
+    <script src="../js/collar_Vitual.js" defer></script>
+    <title>PawSnap - Collar Virtual</title>
+</head>
+<body>
+    <header> 
+        <div>
+            <img src="imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+        </div>
+        <div> 
+            <input type="text" placeholder="Buscar mascotas o categorías.">
+        </div>
+        <div>
+            <button>Iniciar sesión</button>
+            <button>Crear cuenta</button>
+        </div>
+    </header>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="../publicaciones/publicaciones.html">Publicaciones</a>
+        <a href="../crear_Publicacion/crear_Publicacion.html">Crear publicación</a>
+        <a href="../desaparecidos/desaparecidos.html">Desaparecidos</a>
+        <a href="">Collar virtual</a>
+        <a href="">Perfil</a>
+        <a href="">Acerca de</a>
+    </nav>
+    <main>
+        <section id="collarSection">
+            <header id="collar_Header">
+                <span class="page_Label">Identificación inteligente</span>
+                <h1 class="page_Title">Collar virtual</h1>
+                <p class="page_Subtitle">Crea una placa digital con la información esencial para que tu mascota siempre encuentre el camino a casa.</p>
+            </header>
+            <div id="collar_Layout">
+                <div id="collar_FormBox">
+                    <form id="collar_Form">
+                        <label class="field_Label" for="pet_Name">Nombre de la mascota</label>
+                        <input class="field_Input" type="text" id="pet_Name" name="pet_Name" value="Luna">
+                        <label class="field_Label" for="pet_Address">Lugar donde vive</label>
+                        <input class="field_Input" type="text" id="pet_Address" name="pet_Address" value="Guadalupe, San José">
+                        <label class="field_Label" for="owner_Phone">Número del dueño</label>
+                        <input class="field_Input" type="tel" id="owner_Phone" name="owner_Phone" value="+506 6385 5685">
+                        <button id="save_Button" type="submit">Guardar collar virtual</button>
+                    </form>
+                </div>
+                <div id="collar_Preview">
+                    <div id="collar_Tag">
+                        <span id="collar_Hole"></span>
+                        <div id="collar_Icon">
+                            <img id="collarPaw" src="../imagenes/Paw.svg" alt="Huella de mascota">
+                        </div>
+                        <p id="collar_Greeting">Hola, me llamo</p>
+                        <h2 id="collar_Name">Luna</h2>
+                        <hr id="collar_Divider">
+                        <p id="collar_Location">Guadalupe, San José</p>
+                        <p id="collar_Phone">+506 6385 5685</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
