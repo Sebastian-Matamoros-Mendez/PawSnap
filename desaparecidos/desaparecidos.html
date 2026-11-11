@@ -1,50 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- ENCABEZADO DEL DOCUMENTO -->
+<!-- Idioma, título y archivos CSS y JS vinculados -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawSnap - Desaparecidos</title>
     <link rel="stylesheet" href="../css/desaparecidos.css">
     <script src="../js/desaparecidos.js" defer></script>
-    <title>PawSnap - Desaparecidos</title>
 </head>
+<!-- FIN ENCABEZADO DEL DOCUMENTO -->
 <body>
-    <header> 
-        <div>
-            <img src="../imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+    <!-- ENCABEZADO -->
+    <!-- Logo, nombre, eslogan de la marca, buscador y botones de cuenta -->
+    <header id="main_Header">
+        <div id="header_Brand">
+            <img id="header_Logo" src="../imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+            <div id="header_Text">
+                <span id="header_Name">PawSnap</span>
+                <p id="header_Slogan">Cada mascota tiene una historia que merece ser compartida.</p>
+            </div>
         </div>
-        <div> 
-            <input type="text" placeholder="Buscar mascotas o categorías.">
+        <div id="header_Search">
+            <input type="search" id="search_Input" name="search" placeholder="Buscar mascotas o categorías" aria-label="Buscar mascotas o categorías">
         </div>
-        <div>
-            <button>Iniciar sesión</button>
-            <button>Crear cuenta</button>
+        <div id="header_Account">
+            <a id="login_Button" href="../iniciar_Sesion/iniciar_Sesion.html">Iniciar sesión</a>
+            <a id="signup_Button" href="../crear_Cuenta/crear_Cuenta.html">Crear cuenta</a>
         </div>
     </header>
-    <nav>
-        <a href="../index.html">Inicio</a>
-        <a href="../publicaciones/publicaciones.html">Publicaciones</a>
-        <a href="../crear_Publicacion/crear_Publicacion.html">Crear publicación</a>
-        <a href="">Desaparecidos</a>
-        <a href="../collar_virtual/collar_Virtual.html">Collar virtual</a>
-        <a href="../perfil/perfil.html">Perfil</a>
-        <a href="../acerca_De/acerca_De.html">Acerca de</a>
+    <!-- FIN ENCABEZADO -->
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <!-- Enlaces a cada página del sitio -->
+    <nav id="main_Nav">
+        <a class="nav_Link" href="../index.html">Inicio</a>
+        <a class="nav_Link" href="../publicaciones/publicaciones.html">Publicaciones</a>
+        <a class="nav_Link" href="../crear_Publicacion/crear_Publicacion.html">Crear publicación</a>
+        <a class="nav_Link" href="desaparecidos.html">Desaparecidos</a>
+        <a class="nav_Link" href="../collar_Virtual/collar_Virtual.html">Collar virtual</a>
+        <a class="nav_Link" href="../perfil/perfil.html">Perfil</a>
+        <a class="nav_Link" href="../acerca_De/acerca_De.html">Acerca de</a>
     </nav>
+    <!-- FIN MENÚ DE NAVEGACIÓN -->
     <main>
-        <main>
+        <!-- SECCIÓN DESAPARECIDOS -->
+        <!-- Título, botón de alerta, aviso de distancia y tarjetas de mascotas -->
         <section id="desaparecidos">
+            <!-- Encabezado: textos a la izquierda y botón a la derecha -->
             <header id="page_Header">
                 <div>
-                    <span class="pageLabel">Red de ayuda</span>
+                    <span class="page_Label">Red de ayuda</span>
                     <h1 class="page_Title">Mascotas desaparecidas</h1>
                     <p class="page_Subtitle">Activa a la comunidad cercana. Cada mirada cuenta cuando alguien no vuelve a casa.</p>
                 </div>
                 <button id="alert_Button" type="button">+ Publicar alerta</button>
             </header>
+            <!-- Aviso de distancia -->
             <p id="area">Mostrando alertas a menos de 5 km de Guadalupe</p>
+            <!-- Tarjetas de mascotas -->
             <div id="pet_Grid">
+                <!-- Mascota 1 -->
                 <article class="pet_Card">
                     <figure class="pet_Figure">
-                        <img class="pe_tImage" src="../imagenes/Kira.jpg" alt="gato con babero amarilo maullando feliz">
+                        <img class="pet_Image" src="../imagenes/Kira.jpg" alt="Gato con babero amarillo maullando feliz">
                         <span class="pet_Badge">Desaparecido</span>
                     </figure>
                     <div class="pet_Body">
@@ -57,16 +75,17 @@
                         </div>
                     </div>
                 </article>
+                <!-- Mascota 2 -->
                 <article class="pet_Card">
                     <figure class="pet_Figure">
-                        <img class="pet_Image" src="../imagenes/toby.jpg" alt="Toby, beagle">
+                        <img class="pet_Image" src="../imagenes/Toby.jpg" alt="Perro blanco y negro con flores en el hocico">
                         <span class="pet_Badge">Desaparecido</span>
                     </figure>
                     <div class="pet_Body">
                         <h2 class="pet_Name">Toby</h2>
                         <p class="pet_Breed">Beagle · 6 años</p>
                         <p class="pet_Seen">Visto por última vez: Ayer, 19:15</p>
-                        <div class="petA_ctions">
+                        <div class="pet_Actions">
                             <button class="pet_InfoButton" type="button">Tengo información</button>
                             <button class="pet_ShareButton" type="button">Compartir</button>
                         </div>
@@ -74,7 +93,13 @@
                 </article>
             </div>
         </section>
+        <!-- FIN SECCIÓN DESAPARECIDOS -->
     </main>
-    </main>
+    <!-- PIE DE PÁGINA -->
+    <!-- Derechos y nota del proyecto -->
+    <footer id="main_Footer">
+        <p>&copy; 2026 PawSnap</p>
+    </footer>
+    <!-- FIN PIE DE PÁGINA -->
 </body>
 </html>

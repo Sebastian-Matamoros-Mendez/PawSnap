@@ -1,85 +1,115 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- ENCABEZADO DEL DOCUMENTO -->
+<!-- Idioma, título y archivos CSS y JS vinculados -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawSnap</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/main.js" defer></script>
-    <title>PawSnap</title>
 </head>
+<!-- FIN ENCABEZADO DEL DOCUMENTO -->
 <body>
-    <header> 
-        <div>
-            <img src="imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+    <!-- ENCABEZADO -->
+    <!-- Logo, nombre, eslogan de la marca, buscador y botones de cuenta -->
+    <header id="main_Header">
+        <div id="header_Brand">
+            <img id="header_Logo" src="imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+            <div id="header_Text">
+                <span id="header_Name">PawSnap</span>
+                <p id="header_Slogan">Cada mascota tiene una historia que merece ser compartida.</p>
+            </div>
         </div>
-        <div> 
-            <input type="text" placeholder="Buscar mascotas o categorías.">
+        <div id="header_Search">
+            <input type="search" id="search_Input" name="search" placeholder="Buscar mascotas o categorías" aria-label="Buscar mascotas o categorías">
         </div>
-        <div>
-            <button>Iniciar sesión</button>
-            <button>Crear cuenta</button>
+        <div id="header_Account">
+            <a id="login_Button" href="iniciar_Sesion/iniciar_Sesion.html">Iniciar sesión</a>
+            <a id="signup_Button" href="crear_Cuenta/crear_Cuenta.html">Crear cuenta</a>
         </div>
     </header>
-    <nav>
-        <a href="">Inicio</a>
-        <a href="publicaciones/publicaciones.html">Publicaciones</a>
-        <a href="crear_Publicacion/crear_Publicacion.html">Crear publicación</a>
-        <a href="desaparecidos/desaparecidos.html">Desaparecidos</a>
-        <a href="collar_Virtual/collar_Virtual.html">Collar virtual</a>
-        <a href="perfil/perfil.html">Perfil</a>
-        <a href="acerca_De/acerca_De.html">Acerca de</a>
+    <!-- FIN ENCABEZADO -->
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <!-- Enlaces a cada página del sitio -->
+    <nav id="main_Nav">
+        <a class="nav_Link" href="index.html">Inicio</a>
+        <a class="nav_Link" href="publicaciones/publicaciones.html">Publicaciones</a>
+        <a class="nav_Link" href="crear_Publicacion/crear_Publicacion.html">Crear publicación</a>
+        <a class="nav_Link" href="desaparecidos/desaparecidos.html">Desaparecidos</a>
+        <a class="nav_Link" href="collar_Virtual/collar_Virtual.html">Collar virtual</a>
+        <a class="nav_Link" href="perfil/perfil.html">Perfil</a>
+        <a class="nav_Link" href="acerca_De/acerca_De.html">Acerca de</a>
     </nav>
+    <!-- FIN MENÚ DE NAVEGACIÓN -->
     <main>
-        <section class="hero">
-            <p class="hero_Eyebrow">Tu comunidad animal</p>
-            <h2 class="hero_Title">Cada mascota tiene una historia que merece ser compartida.</h2>
-            <p class="hero_Text">Celebra sus momentos, conecta con otros cuidadores y ayuda a que todos vuelvan a casa.</p>
-            <a class="hero_Button" href="">Compartir un momento</a> <!-- agregar cuando haya crear publicación-->
+        <!-- SECCIÓN INICIO -->
+        <!-- Mensaje de bienvenida y botón hacia Crear publicación -->
+        <section id="hero_Section">
+            <p id="hero_Eyebrow">Tu comunidad animal</p>
+            <h1 id="hero_Title">Cada mascota tiene una historia que merece ser compartida.</h1>
+            <p id="hero_Text">Celebra sus momentos, conecta con otros cuidadores y ayuda a que todos vuelvan a casa.</p>
+            <a id="hero_Button" href="crear_Publicacion/crear_Publicacion.html">Compartir un momento</a>
         </section>
-        <div class="posts">
-            <article class="card">
-                <h3 class="card_User">Sofía &amp; Moka</h3>
-                <p class="card_Text">Primera tarde de Moka en el parque. Al principio no quería separarse de mí, pero terminó haciendo una nueva amiga.</p>
-                <figure class="card_Figure">
-                    <img src="imagenes/Moka.jpg" alt="Cachorros jugando en el parque." class="card_Image">
-                </figure>
-                <span class="card_Category">Caninos</span>
-                <footer class="card_Actions">
-                    <button class="card_Button" type="button">Me gusta: <span class="card_Likes">128</span></button>
-                    <button class="card_Button" type="button">Comentar</button>
-                    <button class="card_Button" type="button">Compartir</button>
-                    <button class="card_Button" type="button">Guardar</button>
-                </footer>
-            </article>
-            <article class="card">
-                <h3 class="card_User">Milo</h3>
-                <p class="card_Text">Milo ha descubierto que la mejor vista de la casa está justo aquí. ¿Los gatos de ustedes también tienen un rincón favorito?</p>
-                <figure class="card_Figure">
-                    <img src="imagenes/Milo.jpg" alt="Gato viendo una ventana." class="card_Image">
-                </figure>
-                <span class="card_Category">Felinos</span>
-                <footer class="card_Actions">
-                    <button class="card_Button" type="button">Me gusta: <span class="card_Likes">94</span></button>
-                    <button class="card_Button" type="button">Comentar</button>
-                    <button class="card_Button" type="button">Compartir</button>
-                    <button class="card_Button" type="button">Guardar</button>
-                </footer>
-            </article>
-            <article class="card">
-                <h3 class="card_User">Nuez</h3>
-                <p class="card_Text">Nuez cumplió dos años hoy. Le preparamos semillas, fruta y su túnel favorito. Pequeño de tamaño, enorme de personalidad.</p>
-                <figure class="card_Figure">
-                    <img src="imagenes/Nuez.jpg" alt="Hámster comiendo semillas." class="card_Image">
-                </figure>
-                <span class="card_Category">Roedores</span>
-                <footer class="card_Actions">
-                    <button class="card_Button" type="button">Me gusta: <span class="card_Likes">76</span></button>
-                    <button class="card_Button" type="button">Comentar</button>
-                    <button class="card_Button" type="button">Compartir</button>
-                    <button class="card_Button" type="button">Guardar</button>
-                </footer> 
-            </article>
-        </div>
+        <!-- FIN SECCIÓN INICIO -->
+        <!-- PUBLICACIONES RECIENTES -->
+        <!-- Tres publicaciones de ejemplo con usuario, contenido, categoría y Me gusta -->
+        <section id="posts_Section" aria-label="Publicaciones recientes">
+            <div id="posts_List">
+                <!-- Publicación 1 -->
+                <article class="card">
+                    <h3 class="card_User">Sofía &amp; Moka</h3>
+                    <p class="card_Text">Primera tarde de Moka en el parque. Al principio no quería separarse de mí, pero terminó haciendo una nueva amiga.</p>
+                    <figure class="card_Figure">
+                        <img class="card_Image" src="imagenes/Moka.jpg" alt="Cachorros jugando en el parque.">
+                    </figure>
+                    <span class="card_Category">Caninos</span>
+                    <footer class="card_Actions">
+                        <button class="card_Button" type="button">Me gusta: <span class="card_Likes">128</span></button>
+                        <button class="card_Button" type="button">Comentar</button>
+                        <button class="card_Button" type="button">Compartir</button>
+                        <button class="card_Button" type="button">Guardar</button>
+                    </footer>
+                </article>
+                <!-- Publicación 2 -->
+                <article class="card">
+                    <h3 class="card_User">Milo</h3>
+                    <p class="card_Text">Milo ha descubierto que la mejor vista de la casa está justo aquí. ¿Los gatos de ustedes también tienen un rincón favorito?</p>
+                    <figure class="card_Figure">
+                        <img class="card_Image" src="imagenes/Milo.jpg" alt="Gato viendo una ventana.">
+                    </figure>
+                    <span class="card_Category">Felinos</span>
+                    <footer class="card_Actions">
+                        <button class="card_Button" type="button">Me gusta: <span class="card_Likes">94</span></button>
+                        <button class="card_Button" type="button">Comentar</button>
+                        <button class="card_Button" type="button">Compartir</button>
+                        <button class="card_Button" type="button">Guardar</button>
+                    </footer>
+                </article>
+                <!-- Publicación 3 -->
+                <article class="card">
+                    <h3 class="card_User">Nuez</h3>
+                    <p class="card_Text">Nuez cumplió dos años hoy. Le preparamos semillas, fruta y su túnel favorito. Pequeño de tamaño, enorme de personalidad.</p>
+                    <figure class="card_Figure">
+                        <img class="card_Image" src="imagenes/Nuez.jpg" alt="Hámster comiendo semillas.">
+                    </figure>
+                    <span class="card_Category">Roedores</span>
+                    <footer class="card_Actions">
+                        <button class="card_Button" type="button">Me gusta: <span class="card_Likes">76</span></button>
+                        <button class="card_Button" type="button">Comentar</button>
+                        <button class="card_Button" type="button">Compartir</button>
+                        <button class="card_Button" type="button">Guardar</button>
+                    </footer>
+                </article>
+            </div>
+        </section>
+        <!-- FIN PUBLICACIONES RECIENTES -->
     </main>
+    <!-- PIE DE PÁGINA -->
+    <!-- Derechos y nota del proyecto -->
+    <footer id="main_Footer">
+        <p>&copy; 2026 PawSnap</p>
+    </footer>
+    <!-- FIN PIE DE PÁGINA -->
 </body>
 </html>

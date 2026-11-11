@@ -1,68 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- ENCABEZADO DEL DOCUMENTO -->
+<!-- Idioma, título y archivos CSS y JS vinculados -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawSnap - Crear publicación</title>
     <link rel="stylesheet" href="../css/crear_Publicacion.css">
     <script src="../js/crear_Publicacion.js" defer></script>
-    <title>PawSnap - Crear Publicación</title>
 </head>
+<!-- FIN ENCABEZADO DEL DOCUMENTO -->
 <body>
-    <header> 
-        <div>
-            <img src="../imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+    <!-- ENCABEZADO -->
+    <!-- Logo, nombre, eslogan de la marca, buscador y botones de cuenta -->
+    <header id="main_Header">
+        <div id="header_Brand">
+            <img id="header_Logo" src="../imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+            <div id="header_Text">
+                <span id="header_Name">PawSnap</span>
+                <p id="header_Slogan">Cada mascota tiene una historia que merece ser compartida.</p>
+            </div>
         </div>
-        <div> 
-            <input type="text" placeholder="Buscar mascotas o categorías.">
+        <div id="header_Search">
+            <input type="search" id="search_Input" name="search" placeholder="Buscar mascotas o categorías" aria-label="Buscar mascotas o categorías">
         </div>
-        <div>
-            <button>Iniciar sesión</button>
-            <button>Crear cuenta</button>
+        <div id="header_Account">
+            <a id="login_Button" href="../iniciar_Sesion/iniciar_Sesion.html">Iniciar sesión</a>
+            <a id="signup_Button" href="../crear_Cuenta/crear_Cuenta.html">Crear cuenta</a>
         </div>
     </header>
-    <nav>
-        <a href="../index.html">Inicio</a>
-        <a href="../publicaciones/publicaciones.html">Publicaciones</a>
-        <a href="">Crear publicación</a>
-        <a href="../desaparecidos/desaparecidos.html">Desaparecidos</a>
-        <a href="../collar_virtual/collar_Virtual.html">Collar virtual</a>
-        <a href="../perfil/perfil.html">Perfil</a>
-        <a href="../acerca_De/acerca_De.html">Acerca de</a>
+    <!-- FIN ENCABEZADO -->
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <!-- Enlaces a cada página del sitio -->
+    <nav id="main_Nav">
+        <a class="nav_Link" href="../index.html">Inicio</a>
+        <a class="nav_Link" href="../publicaciones/publicaciones.html">Publicaciones</a>
+        <a class="nav_Link" href="crear_Publicacion.html">Crear publicación</a>
+        <a class="nav_Link" href="../desaparecidos/desaparecidos.html">Desaparecidos</a>
+        <a class="nav_Link" href="../collar_Virtual/collar_Virtual.html">Collar virtual</a>
+        <a class="nav_Link" href="../perfil/perfil.html">Perfil</a>
+        <a class="nav_Link" href="../acerca_De/acerca_De.html">Acerca de</a>
     </nav>
+    <!-- FIN MENÚ DE NAVEGACIÓN -->
     <main>
-        <span class="etiqueta">Nueva historia</span>
-        <h1>Crear publicación</h1>
-        <p class="subtitulo">Comparte una foto, un video o ese pequeño momento que hizo especial tu día.</p>
-        <div class="publicacion-card">
-            <div class="publicacion-imagen">
-                <img src="../imagenes/crearPublicacion.jpg" alt="Perro y gato mirando por una ventana">
-                <div class="imagen-overlay">
-                    <p>Lo cotidiano también<br>merece un recuerdo.</p>
+        <!-- SECCIÓN CREAR PUBLICACIÓN -->
+        <!-- Título de la página y formulario para crear una publicación -->
+        <section id="crear_Section">
+            <!-- Encabezado de la sección -->
+            <header id="crear_Header">
+                <span class="page_Label">Nueva historia</span>
+                <h1 class="page_Title">Crear publicación</h1>
+                <p class="page_Subtitle">Comparte una foto, un video o ese pequeño momento que hizo especial tu día.</p>
+            </header>
+            <!-- Tarjeta con dos columnas: imagen y formulario -->
+            <div id="crear_Card">
+                <!-- Columna izquierda: imagen con frase encima -->
+                <div id="crear_Image">
+                    <img id="crear_Photo" src="../imagenes/forms.jpg" alt="Perro y gato mirando por una ventana">
+                    <div id="image_Overlay">
+                        <p>Lo cotidiano también<br>merece un recuerdo.</p>
+                    </div>
+                </div>
+                <!-- Columna derecha: formulario -->
+                <div id="crear_FormBox">
+                    <form id="crear_Form">
+                        <label class="field_Label" for="usuario">Nombre de usuario</label>
+                        <input class="field_Input" type="text" id="usuario" name="usuario" placeholder="Ej. Andrea y Luna">
+                        <label class="field_Label" for="contenido">Contenido de la publicación</label>
+                        <textarea class="field_Input" id="contenido" name="contenido" maxlength="500" placeholder="Cuéntanos qué sucedió..."></textarea>
+                        <span id="char_Counter">0/500</span>
+                        <label class="field_Label" for="categoria">Categoría</label>
+                        <select class="field_Input" id="categoria" name="categoria">
+                            <option value="Caninos">Caninos</option>
+                            <option value="Felinos">Felinos</option>
+                            <option value="Aves">Aves</option>
+                            <option value="Roedores">Roedores</option>
+                        </select>
+                        <label class="field_Label" for="enlace">Enlace de imagen o video <span class="field_Optional">(opcional)</span></label>
+                        <input class="field_Input" type="url" id="enlace" name="enlace" placeholder="https://...">
+                        <div id="crear_Notice">
+                            <p>Puedes agregar una URL pública de una foto o video de tu mascota.</p>
+                        </div>
+                        <button id="publish_Button" type="submit">+ Publicar ahora</button>
+                    </form>
                 </div>
             </div>
-            <div class="publicacion-form">
-                <form id="formPublicacion">
-                    <label for="usuario">Nombre de usuario</label>
-                    <input type="text" id="usuario" name="usuario" placeholder="Ej. Andrea y Luna">
-                    <label for="contenido">Contenido de la publicación</label>
-                    <textarea id="contenido" name="contenido" maxlength="500" placeholder="Cuéntanos qué sucedió..."></textarea>
-                    <span class="contador" id="contadorCaracteres">0/500</span>
-                    <label for="categoria">Categoría</label>
-                    <select id="categoria" name="categoria">
-                        <option value="Caninos">Caninos</option>
-                        <option value="Felinos">Felinos</option>
-                        <option value="Aves">Aves</option>
-                        <option value="Roedores">Roedores</option>
-                    </select>
-                    <label for="enlace">Enlace de imagen o video <span>(opcional)</span></label>
-                    <input type="url" id="enlace" name="enlace" placeholder="https://...">
-                    <div class="aviso">
-                        <p>Puedes agregar una URL pública de una foto o video de tu mascota.</p>
-                    </div>
-                    <button type="submit">+ Publicar ahora</button>
-                </form>
-            </div>
-        </div>
+        </section>
+        <!-- FIN SECCIÓN CREAR PUBLICACIÓN -->
     </main>
+    <!-- PIE DE PÁGINA -->
+    <!-- Derechos y nota del proyecto -->
+    <footer id="main_Footer">
+        <p>&copy; 2026 PawSnap</p>
+    </footer>
+    <!-- FIN PIE DE PÁGINA -->
 </body>
 </html>

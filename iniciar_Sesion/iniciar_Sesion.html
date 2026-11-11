@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- ENCABEZADO DEL DOCUMENTO -->
+<!-- Idioma, título y archivos CSS y JS vinculados -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawSnap - Iniciar sesión</title>
+    <link rel="stylesheet" href="../css/iniciar_Sesion.css">
+    <script src="../js/iniciar_Sesion.js" defer></script>
+</head>
+<!-- FIN ENCABEZADO DEL DOCUMENTO -->
+<body>
+    <!-- ENCABEZADO -->
+    <!-- Logo, nombre, eslogan de la marca, buscador y enlaces de cuenta -->
+    <header id="main_Header">
+        <div id="header_Brand">
+            <img id="header_Logo" src="../imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+            <div id="header_Text">
+                <span id="header_Name">PawSnap</span>
+                <p id="header_Slogan">Cada mascota tiene una historia que merece ser compartida.</p>
+            </div>
+        </div>
+        <div id="header_Search">
+            <input type="search" id="search_Input" name="search" placeholder="Buscar mascotas o categorías" aria-label="Buscar mascotas o categorías">
+        </div>
+        <div id="header_Account">
+            <a id="login_Link" href="../iniciar_Sesion/iniciar_Sesion.html">Iniciar sesión</a>
+            <a id="signup_Link" href="../crear_Cuenta/crear_Cuenta.html">Crear cuenta</a>
+        </div>
+    </header>
+    <!-- FIN ENCABEZADO -->
+    <!-- MENÚ DE NAVEGACIÓN --> 
+    <!-- Enlaces a cada página del sitio -->
+    <nav id="main_Nav">
+        <a class="nav_Link" href="../index.html">Inicio</a>
+        <a class="nav_Link" href="../publicaciones/publicaciones.html">Publicaciones</a>
+        <a class="nav_Link" href="../crear_Publicacion/crear_Publicacion.html">Crear publicación</a>
+        <a class="nav_Link" href="../desaparecidos/desaparecidos.html">Desaparecidos</a>
+        <a class="nav_Link" href="../collar_Virtual/collar_Virtual.html">Collar virtual</a>
+        <a class="nav_Link" href="../perfil/perfil.html">Perfil</a>
+        <a class="nav_Link" href="../acerca_De/acerca_De.html">Acerca de</a>
+    </nav>
+    <!-- FIN MENÚ DE NAVEGACIÓN -->
+    <main>
+        <!-- SECCIÓN INICIAR SESIÓN -->
+        <!-- Fotografía y tarjeta con el formulario para iniciar sesión -->
+        <section id="auth_Section">
+            <!-- Columna izquierda: fotografía -->
+            <div id="auth_Image">
+                <img id="auth_Photo" src="../imagenes/forms.jpg" alt="Perro y gatito descansando juntos">
+            </div>
+            <!-- Columna derecha: tarjeta con el formulario -->
+            <div id="auth_Panel">
+                <div id="auth_Card">
+                    <div id="auth_Icon">
+                        <img id="auth_Paw" src="../imagenes/Paw.svg" alt="Huella de PawSnap">
+                    </div>
+                    <h1 id="auth_Title">Qué alegría verte</h1>
+                    <p id="auth_Subtitle">Inicia sesión para seguir compartiendo aventuras.</p>
+                    <form id="login_Form">
+                        <label class="field_Label" for="login_Email">Correo electrónico</label>
+                        <input class="field_Input" type="email" id="login_Email" name="email" placeholder="tu@email.com">
+                        <label class="field_Label" for="login_Password">Contraseña</label>
+                        <input class="field_Input" type="password" id="login_Password" name="password" placeholder="Mínimo 6 caracteres">
+                        <button id="auth_Submit" type="submit">Iniciar sesión</button>
+                    </form>
+                    <p id="auth_Switch">¿Aún no tienes cuenta? <a id="auth_SwitchLink" href="../crear_Cuenta/crear_Cuenta.html">Crear cuenta</a></p>
+                </div>
+            </div>
+        </section>
+        <!-- FIN SECCIÓN INICIAR SESIÓN -->
+    </main>
+    <!-- PIE DE PÁGINA -->
+    <!-- Derechos y nota del proyecto -->
+    <footer id="main_Footer">
+        <p>&copy; 2026 PawSnap · Proyecto académico</p>
+    </footer>
+    <!-- FIN PIE DE PÁGINA -->
+</body>
+</html>

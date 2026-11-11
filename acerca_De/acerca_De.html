@@ -1,60 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- ENCABEZADO DEL DOCUMENTO -->
+<!-- Idioma, título y archivos CSS y JS vinculados  -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawSnap - Acerca de</title>
     <link rel="stylesheet" href="../css/acerca_De.css">
     <script src="../js/acerca_De.js" defer></script>
-    <title>PawSnap - Acerca de</title>
 </head>
+<!-- FIN ENCABEZADO DEL DOCUMENTO -->
 <body>
-    <header> 
-        <div>
-            <img src="../imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+    <!-- ENCABEZADO -->
+    <!-- Logo, nombre, eslogan de la marca, buscador y botones de cuenta -->
+    <header id="main_Header">
+        <div id="header_Brand">
+            <img id="header_Logo" src="../imagenes/pawsnap-logo.svg" alt="Logo PawSnap">
+            <div id="header_Text">
+                <span id="header_Name">PawSnap</span>
+                <p id="header_Slogan">Cada mascota tiene una historia que merece ser compartida.</p>
+            </div>
         </div>
-        <div> 
-            <input type="text" placeholder="Buscar mascotas o categorías.">
+        <div id="header_Search">
+            <input type="search" id="search_Input" name="search" placeholder="Buscar mascotas o categorías" aria-label="Buscar mascotas o categorías">
         </div>
-        <div>
-            <button>Iniciar sesión</button>
-            <button>Crear cuenta</button>
+        <div id="header_Account">
+            <a id="login_Button" href="../iniciar_Sesion/iniciar_Sesion.html">Iniciar sesión</a>
+            <a id="signup_Button" href="../crear_Cuenta/crear_Cuenta.html">Crear cuenta</a>
         </div>
     </header>
-    <nav>
-        <a href="../index.html">Inicio</a>
-        <a href="../publicaciones/publicaciones.html">Publicaciones</a>
-        <a href="../crear_Publicacion/crear_Publicacion.html">Crear publicación</a>
-        <a href="../desaparecidos/desaparecidos.html">Desaparecidos</a>
-        <a href="../collar_virtual/collar_Virtual.html">Collar virtual</a>
-        <a href="../perfil/perfil.html">Perfil</a>
-        <a href="">Acerca de</a>
+    <!--FIN ENCABEZADO -->
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <!-- Enlaces a cada página del sitio; "Acerca de" queda marcado como página actual -->
+    <nav id="main_Nav">
+        <a class="nav_Link" href="../index.html">Inicio</a>
+        <a class="nav_Link" href="../publicaciones/publicaciones.html">Publicaciones</a>
+        <a class="nav_Link" href="../crear_Publicacion/crear_Publicacion.html">Crear publicación</a>
+        <a class="nav_Link" href="../desaparecidos/desaparecidos.html">Desaparecidos</a>
+        <a class="nav_Link" href="../collar_Virtual/collar_Virtual.html">Collar virtual</a>
+        <a class="nav_Link" href="../perfil/perfil.html">Perfil</a>
+        <a class="nav_Link" href="acerca_De.html" aria-current="page">Acerca de</a>
     </nav>
+    <!-- FIN MENÚ DE NAVEGACIÓN -->
     <main>
+        <!-- PORTADA ACERCA DE -->
+        <!-- Bloque oscuro con el logo, el título principal y la descripción -->
         <section id="about_Hero">
             <div id="about_Logo">
-                <img id="about_Paw" src="../imagenes/paw.svg" alt="Huella de PawSnap">
+                <img id="about_Paw" src="../imagenes/Paw.svg" alt="Huella de PawSnap">
             </div>
             <span id="about_Label">Acerca de PawSnap</span>
             <h1 id="about_Title">Una red social creada para quienes hacen de una mascota su familia.</h1>
             <p id="about_Text">Compartimos historias, cuidamos identidades y movilizamos comunidades para que ninguna mascota esté sola.</p>
         </section>
-        <section id="about_Values">
-            <div id="values_Grid">
-                <article class="value_Card">
-                    <h2 class="value_Title">Compartir</h2>
-                    <p class="value_Text">Publica los momentos que convierten un día normal en un recuerdo inolvidable.</p>
+        <!-- FIN PORTADA ACERCA DE -->
+        <!-- NUESTRO PROPÓSITO -->
+        <!-- Texto de propósito y dos tarjetas, una de misión y una de visión -->
+        <section id="about_Purpose">
+            <header id="purpose_Header">
+                <span id="purpose_Label">Nuestro propósito</span>
+                <h2 id="purpose_Title">Lo que nos mueve cada día</h2>
+                <p id="purpose_Text">PawSnap busca que cada historia compartida también inspire una forma más cercana y responsable de cuidar a los animales.</p>
+            </header>
+            <div id="mv_Grid">
+                <!-- Tarjeta de misión -->
+                <article class="mv_Card mv_CardMission">
+                    <span class="mv_Icon" aria-hidden="true"></span>
+                    <span class="mv_Label">Misión</span>
+                    <h3 class="mv_Title">Conectar historias que dejan huella</h3>
+                    <p class="mv_Text">Crear un espacio cercano y seguro donde las personas puedan celebrar a sus mascotas, compartir experiencias y encontrar herramientas que ayuden a proteger su bienestar.</p>
                 </article>
-                <article class="value_Card">
-                    <h2 class="value_Title">Proteger</h2>
-                    <p class="value_Text">Crea una identificación virtual clara, accesible y siempre actualizada.</p>
-                </article>
-                <article class="value_Card">
-                    <h2 class="value_Title">Encontrar</h2>
-                    <p class="value_Text">Activa una red cercana de personas dispuestas a mirar y ayudar.</p>
+                <!-- Tarjeta de visión -->
+                <article class="mv_Card mv_CardVision">
+                    <span class="mv_Icon" aria-hidden="true"></span>
+                    <span class="mv_Label">Visión</span>
+                    <h3 class="mv_Title">Una comunidad unida por sus mejores momentos</h3>
+                    <p class="mv_Text">Ser el lugar favorito para compartir con amigos, familiares y nuevas personas esos momentos hermosos que nacen de la vida junto a una mascota.</p>
                 </article>
             </div>
-            <button id="about_Button" type="button">Crear mi cuenta en PawSnap</button>
         </section>
+        <!-- FIN NUESTRO PROPÓSITO -->
+        <!-- NUESTROS VALORES -->
+        <!-- Título de la sección y tres tarjetas con los valores de PawSnap -->
+        <section id="about_Values">
+            <h2 id="values_Title">Nuestros valores</h2>
+            <div id="values_Grid">
+                <article class="value_Card">
+                    <h3 class="value_Title">Compartir con alegría</h3>
+                    <p class="value_Text">Creemos que una historia sencilla puede acercar personas y llenar de cariño a toda una comunidad.</p>
+                </article>
+                <article class="value_Card">
+                    <h3 class="value_Title">Cuidar con responsabilidad</h3>
+                    <p class="value_Text">Promovemos el respeto, la protección y el compromiso diario con el bienestar de cada animal.</p>
+                </article>
+                <article class="value_Card">
+                    <h3 class="value_Title">Construir comunidad</h3>
+                    <p class="value_Text">Escuchamos, ayudamos y colaboramos para que mascotas y personas se sientan acompañadas.</p>
+                </article>
+            </div>
+        </section>
+        <!-- FIN NUESTROS VALORES -->
+        <!-- EL ROSTRO HUMANO -->
+        <!-- Foto del fundador a la izquierda y su historia a la derecha -->
+        <section id="about_Founder">
+            <figure id="founder_Photo">
+                <img id="founder_Image" src="../imagenes/fundador.jpg" alt="Fotografía del fundador de PawSnap">
+            </figure>
+            <div id="founder_Info">
+                <span id="founder_Label">El rostro humano</span>
+                <h2 id="founder_Title">Detrás de PawSnap hay una persona que ama a los animales</h2>
+                <p class="founder_Text">PawSnap nació como un proyecto escolar con una idea sencilla: usar la tecnología para acercar a quienes consideran a sus mascotas parte de la familia.</p>
+                <p class="founder_Text">Conocer el rostro de quien creó el proyecto ayuda a transmitir cercanía, transparencia y el compromiso real que existe detrás de cada función de la plataforma.</p>
+                <!-- Insignia con el cargo -->
+                <div id="founder_Badge">
+                    <img id="founder_BadgeIcon" src="../imagenes/Paw.svg" alt="" aria-hidden="true">
+                    <div id="founder_BadgeText">
+                        <strong id="founder_BadgeName">Fundador de PawSnap</strong>
+                        <span id="founder_BadgeInfo">Proyecto escolar · Costa Rica</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FIN EL ROSTRO HUMANO -->
+        <!-- SIGAMOS EN CONTACTO -->
+        <!-- Bloque oscuro con un botón hacia Publicaciones y los datos de contacto -->
+        <section id="about_Contact">
+            <span id="contact_Label">Sigamos en contacto</span>
+            <h2 id="contact_Title">Comparte, conecta y crea nuevos recuerdos con PawSnap</h2>
+            <p id="contact_Text">Explora las historias de la comunidad o escríbenos si quieres conocer más sobre este proyecto.</p>
+            <div id="contact_Actions">
+                <!-- Lleva a la página de Publicaciones -->
+                <a id="contact_PostsButton" href="../publicaciones/publicaciones.html">Ver publicaciones</a>
+                <!-- Abre el programa de correo del usuario -->
+                <a class="contact_Link" href="mailto:PawSnap@gmail.com">PawSnap@gmail.com</a>
+                <!-- En el celular permite llamar al número -->
+                <a class="contact_Link" href="tel:+50663855685">+506 6385 5685</a>
+            </div>
+        </section>
+        <!-- FIN SIGAMOS EN CONTACTO -->
     </main>
+    <!-- PIE DE PÁGINA -->
+    <!-- Derechos y nota del proyecto -->
+    <footer id="main_Footer">
+        <p>&copy; 2026 PawSnap</p>
+    </footer>
+    <!-- FIN PIE DE PÁGINA -->
 </body>
 </html>
