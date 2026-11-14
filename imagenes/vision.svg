@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="65 90 880 490" width="440" height="245" fill="none" stroke="#ffffff" stroke-width="30" role="img" aria-label="Dos símbolos unidos">
+  <!-- Símbolo 1: círculo con punto, tallo y media luna -->
+  <g stroke-linejoin="miter" stroke-linecap="round">
+    <circle cx="200" cy="335" r="105"/>
+    <circle cx="203" cy="336" r="28" fill="#ffffff" stroke="none"/>
+    <path d="M200 225 V120 A215 215 0 0 1 195 549"/>
+  </g>
+  <!-- Símbolo 2: círculo con punto, tallo y dos brazos curvos -->
+  <g transform="translate(395 -5)" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="320" cy="405" r="106"/>
+    <circle cx="322" cy="402" r="30" fill="#ffffff" stroke="none"/>
+    <path d="M320 125 V295"/>
+    <path d="M120 200 C118 290 160 350 218 358"/>
+    <path d="M520 200 C522 290 480 350 422 358"/>
+  </g>
+</svg>
