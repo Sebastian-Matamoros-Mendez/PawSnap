@@ -511,3 +511,40 @@ textarea.field_Input {
 }
 
 /* FIN RESPONSIVO */
+
+/* ===== MENSAJES Y ESTADOS DE JAVASCRIPT ===== */
+/* Qué se hace: estilos de mensajes del formulario, campo con error, "Me gusta" activo y aviso de lista vacía */
+
+.form_Message {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.form_Message:empty {
+    display: none;
+}
+
+.message_Error {
+    color: #d93025;
+}
+
+.message_Success {
+    color: var(--colorAction);
+}
+
+.field_Invalid {
+    border-color: #d93025;
+}
+
+.card_ButtonActive {
+    background: #fff1ee;
+    color: var(--colorPrimary);
+}
+
+.posts_Empty {
+    color: var(--colorText);
+    font-size: 14px;
+}
+
+/* ===== FIN MENSAJES Y ESTADOS DE JAVASCRIPT ===== */
