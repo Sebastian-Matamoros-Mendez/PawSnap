@@ -121,11 +121,14 @@ function restaurarPublicacionesIniciales() {
     }
 }
 
+/* Devuelve true si se pudo guardar y false si el navegador no tiene espacio o no permite guardar */
+
 function guardarPublicaciones() {
     try {
         localStorage.setItem(CLAVE_PUBLICACIONES, JSON.stringify(publicaciones));
+        return true;
     } catch (error) {
-        /* Si no se puede guardar, la publicación sigue en pantalla mientras no se cambie de página */
+        return false;
     }
 }
 
@@ -149,7 +152,14 @@ function agregarPublicacion(usuario, contenido, categoria, imagen, tipo) {
     };
     /* La más nueva va primero */
     publicaciones.unshift(nueva);
-    guardarPublicaciones();
+
+    /* Si no se pudo guardar (por ejemplo, la imagen es muy pesada) se quita y se avisa con false */
+
+    if (!guardarPublicaciones()) {
+        publicaciones.shift();
+        return false;
+    }
+    return true;
 }
 
 /* Si ya había dado "Me gusta" lo quita; si no, lo suma */
@@ -233,7 +243,8 @@ function crearBoton(texto, accion, id) {
 /* Crea el elemento multimedia según el tipo: "imagen" (por defecto), "video" o "youtube". Si el enlace es completo (http) se usa tal cual; si no, se busca en la carpeta imagenes */
 
 function crearMultimedia(publicacion, rutaImagenes) {
-    const direccion = publicacion.imagen.startsWith("http") ? publicacion.imagen : rutaImagenes + publicacion.imagen;
+    const completa = publicacion.imagen.startsWith("http") || publicacion.imagen.startsWith("data:");
+    const direccion = completa ? publicacion.imagen : rutaImagenes + publicacion.imagen;
     let multimedia;
 
     if (publicacion.tipo === "video") {
@@ -242,18 +253,36 @@ function crearMultimedia(publicacion, rutaImagenes) {
         multimedia.controls = true;
         multimedia.preload = "metadata";
         multimedia.setAttribute("aria-label", publicacion.descripcion);
-    } else if (publicacion.tipo === "youtube") {
+    } else if (publicacion.tipo === "youtube" || publicacion.tipo === "vimeo") {
         multimedia = crearElemento("iframe", "card_Image");
         multimedia.src = direccion;
         multimedia.title = publicacion.descripcion;
         multimedia.allowFullscreen = true;
         multimedia.loading = "lazy";
+    } else if (publicacion.tipo === "enlace") {
+        return crearEnlaceMultimedia(direccion);
     } else {
         multimedia = crearElemento("img", "card_Image");
         multimedia.src = direccion;
         multimedia.alt = publicacion.descripcion;
     }
+
+    /* Si el sitio de origen no deja mostrar el archivo, se cambia por un enlace para abrirlo */
+
+    multimedia.addEventListener("error", function () {
+        multimedia.replaceWith(crearEnlaceMultimedia(direccion));
+    });
     return multimedia;
+}
+
+/* Enlace que abre el contenido en otra pestaña cuando no se puede mostrar dentro de la tarjeta */
+
+function crearEnlaceMultimedia(direccion) {
+    const enlace = crearElemento("a", "card_Link", "Ver contenido adjunto");
+    enlace.href = direccion;
+    enlace.target = "_blank";
+    enlace.rel = "noopener noreferrer";
+    return enlace;
 }
 
 /* Arma una tarjeta con la misma estructura que tenía el HTML */

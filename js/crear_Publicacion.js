@@ -6,6 +6,7 @@ const campoUsuario = document.getElementById("usuario");
 const campoContenido = document.getElementById("contenido");
 const campoCategoria = document.getElementById("categoria");
 const campoEnlace = document.getElementById("enlace");
+const campoArchivo = document.getElementById("archivo");
 const contador = document.getElementById("char_Counter");
 const botonPublicar = document.getElementById("publish_Button");
 const categoriasPermitidas = ["Caninos", "Felinos", "Roedores", "Otro"];
@@ -37,7 +38,7 @@ function mostrarMensaje(texto, tipo) {
 function limpiarErrores() {
     mensaje.textContent = "";
     mensaje.className = "form_Message";
-    [campoUsuario, campoContenido, campoCategoria, campoEnlace].forEach(function (campo) {
+    [campoUsuario, campoContenido, campoCategoria, campoEnlace, campoArchivo].forEach(function (campo) {
         campo.classList.remove("field_Invalid");
     });
 }
@@ -57,21 +58,56 @@ function esUnaUrlValida(texto) {
     }
 }
 
-/* Identifica qué es el enlace: imagen, video o video de YouTube.
-Devuelve { tipo, direccion } o null si el enlace no es multimedia */
+/* Prueba si una dirección se puede mostrar como imagen; espera máximo 6 segundos */
 
-function detectarMultimedia(texto) {
-    if (/\.(jpe?g|png|gif|webp|avif|svg)(\?.*)?$/i.test(texto)) {
-        return { tipo: "imagen", direccion: texto };
-    }
-    if (/\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(texto)) {
-        return { tipo: "video", direccion: texto };
-    }
+function probarImagen(direccion) {
+    return new Promise(function (resolver) {
+        const imagen = new Image();
+        const limite = setTimeout(function () {
+            resolver(false);
+        }, 6000);
+        imagen.onload = function () {
+            clearTimeout(limite);
+            resolver(true);
+        };
+        imagen.onerror = function () {
+            clearTimeout(limite);
+            resolver(false);
+        };
+        imagen.src = direccion;
+    });
+}
 
-    /* Enlaces de YouTube: se convierten a la dirección "embed" para poder mostrarlos */
+/* Prueba si una dirección se puede reproducir como video; espera máximo 6 segundos */
 
+function probarVideo(direccion) {
+    return new Promise(function (resolver) {
+        const video = document.createElement("video");
+        const limite = setTimeout(function () {
+            resolver(false);
+        }, 6000);
+        video.onloadedmetadata = function () {
+            clearTimeout(limite);
+            resolver(true);
+        };
+        video.onerror = function () {
+            clearTimeout(limite);
+            resolver(false);
+        };
+        video.preload = "metadata";
+        video.src = direccion;
+    });
+}
+
+/* Identifica qué es el enlace: YouTube, Vimeo, imagen, video o, si no se puede mostrar, un simple enlace.
+Devuelve una promesa con { tipo, direccion } */
+
+async function detectarMultimedia(texto) {
     const url = new URL(texto);
     const servidor = url.hostname.replace(/^www\.|^m\./, "");
+
+    /* YouTube: se convierte a la dirección "embed" para poder mostrarlo */
+
     let idVideo = "";
     if (servidor === "youtu.be") {
         idVideo = url.pathname.slice(1);
@@ -81,7 +117,58 @@ function detectarMultimedia(texto) {
     if (/^[\w-]{11}$/.test(idVideo)) {
         return { tipo: "youtube", direccion: "https://www.youtube.com/embed/" + idVideo };
     }
-    return null;
+
+    /* Vimeo: se usa el reproductor incrustado */
+
+    if (servidor === "vimeo.com" || servidor === "player.vimeo.com") {
+        const idVimeo = url.pathname.match(/(\d{6,})/);
+        if (idVimeo) {
+            return { tipo: "vimeo", direccion: "https://player.vimeo.com/video/" + idVimeo[1] };
+        }
+    }
+
+    /* Por la terminación del archivo */
+
+    if (/\.(jpe?g|png|gif|webp|avif|svg|bmp)$/i.test(url.pathname)) {
+        return { tipo: "imagen", direccion: texto };
+    }
+    if (/\.(mp4|webm|ogg|ogv|mov|m4v)$/i.test(url.pathname)) {
+        return { tipo: "video", direccion: texto };
+    }
+
+    /* Si no tiene terminación conocida, se prueba si carga como imagen y luego como video */
+
+    if (await probarImagen(texto)) {
+        return { tipo: "imagen", direccion: texto };
+    }
+    if (await probarVideo(texto)) {
+        return { tipo: "video", direccion: texto };
+    }
+    return { tipo: "enlace", direccion: texto };
+}
+
+/* Lee una imagen del computador y la reduce (máximo 1000 px) para que quepa en el navegador.
+Devuelve una promesa con la imagen como texto (data URL) */
+
+function leerImagenArchivo(archivo) {
+    return new Promise(function (resolver, rechazar) {
+        const lector = new FileReader();
+        lector.onerror = rechazar;
+        lector.onload = function () {
+            const imagen = new Image();
+            imagen.onerror = rechazar;
+            imagen.onload = function () {
+                const escala = Math.min(1, 1000 / Math.max(imagen.width, imagen.height));
+                const lienzo = document.createElement("canvas");
+                lienzo.width = Math.round(imagen.width * escala);
+                lienzo.height = Math.round(imagen.height * escala);
+                lienzo.getContext("2d").drawImage(imagen, 0, 0, lienzo.width, lienzo.height);
+                resolver(lienzo.toDataURL("image/jpeg", 0.8));
+            };
+            imagen.src = lector.result;
+        };
+        lector.readAsDataURL(archivo);
+    });
 }
 
 function validarFormulario(usuario, contenido, categoria, enlace) {
@@ -99,6 +186,9 @@ function validarFormulario(usuario, contenido, categoria, enlace) {
     }
     if (enlace !== "" && !esUnaUrlValida(enlace)) {
         return { campo: campoEnlace, texto: "El enlace debe empezar con http:// o https://." };
+    }
+    if (campoArchivo && campoArchivo.files.length > 0 && !campoArchivo.files[0].type.startsWith("image/")) {
+        return { campo: campoArchivo, texto: "El archivo debe ser una imagen (JPG, PNG, GIF o WEBP)." };
     }
     return null;
 }
@@ -121,7 +211,7 @@ formulario.addEventListener("input", limpiarErrores);
 
 /* Evento submit: valida, guarda la publicación y lleva a la página de Publicaciones */
 
-formulario.addEventListener("submit", function (evento) {
+formulario.addEventListener("submit", async function (evento) {
     evento.preventDefault();
     limpiarErrores();
 
@@ -138,14 +228,36 @@ formulario.addEventListener("submit", function (evento) {
         return;
     }
 
-    /* Si el enlace es una imagen o un video se muestra en la publicación; si no, se publica solo el texto */
+    /* Se obtiene el contenido multimedia (opcional): una imagen del computador o el enlace escrito.
+    Mientras se revisa, el botón se bloquea para evitar publicaciones repetidas */
 
-    const multimedia = enlace === "" ? null : detectarMultimedia(enlace);
-    const direccion = multimedia ? multimedia.direccion : "";
-    const tipo = multimedia ? multimedia.tipo : "";
+    botonPublicar.disabled = true;
+    mostrarMensaje("Publicando...", "exito");
+
+    let direccion = "";
+    let tipo = "";
+    try {
+        if (campoArchivo && campoArchivo.files.length > 0) {
+            direccion = await leerImagenArchivo(campoArchivo.files[0]);
+            tipo = "imagen";
+        } else if (enlace !== "") {
+            const multimedia = await detectarMultimedia(enlace);
+            direccion = multimedia.direccion;
+            tipo = multimedia.tipo;
+        }
+    } catch (errorLectura) {
+        botonPublicar.disabled = false;
+        mostrarMensaje("No se pudo leer la imagen. Prueba con otra.", "error");
+        return;
+    }
 
     cargarPublicaciones();
-    agregarPublicacion(usuario, contenido, categoria, direccion, tipo);
+    const seGuardo = agregarPublicacion(usuario, contenido, categoria, direccion, tipo);
+    if (!seGuardo) {
+        botonPublicar.disabled = false;
+        mostrarMensaje("No hay espacio para guardar la publicación. Prueba con una imagen más pequeña o un enlace.", "error");
+        return;
+    }
 
     formulario.reset();
     contador.textContent = "0/" + maximoCaracteres;

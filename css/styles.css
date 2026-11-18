@@ -375,8 +375,26 @@ main {
 }
 
 /* Videos de YouTube dentro de las tarjetas */
+
 iframe.card_Image {
     border: 0;
+}
+
+/* Enlace que reemplaza al contenido multimedia cuando no se puede mostrar en la tarjeta */
+.card_Link {
+    display: block;
+    padding: 14px;
+    border-radius: 10px;
+    background: var(--colorBackground);
+    color: var(--colorAction);
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+}
+
+.card_Link:hover {
+    text-decoration: underline;
 }
 
 /* Botones: Me gusta, Comentar, Compartir y Guardar */
@@ -471,6 +489,7 @@ iframe.card_Image {
         white-space: nowrap;
     }
 }
+
 /* FIN RESPONSIVO */
 
 /* ===== MENSAJES Y ESTADOS DE JAVASCRIPT ===== */
