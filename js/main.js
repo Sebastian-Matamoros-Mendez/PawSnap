@@ -8,6 +8,7 @@ let textoBusqueda = "";
 
 /* FIN ELEMENTOS Y ESTADO */
 
+
 /* MOSTRAR PUBLICACIONES RECIENTES */
 /* Qué se hace: muestra las 3 publicaciones más recientes (y que coincidan con la búsqueda) */
 
@@ -18,6 +19,7 @@ function actualizarInicio() {
 
 /* FIN MOSTRAR PUBLICACIONES RECIENTES */
 
+
 /* INICIO Y EVENTOS */
 /* Qué se hace: carga los datos, muestra las tarjetas y activa los eventos de la página */
 
@@ -26,7 +28,6 @@ actualizarInicio();
 activarEventosTarjetas(listaPublicaciones, actualizarInicio);
 
 /* Evento input: filtra mientras se escribe en el buscador del encabezado */
-
 buscador.addEventListener("input", function () {
     textoBusqueda = buscador.value;
     actualizarInicio();
